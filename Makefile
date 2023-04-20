@@ -6,7 +6,7 @@
 #    By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 10:05:12 by ride-sou          #+#    #+#              #
-#    Updated: 2023/04/20 15:11:22 by ride-sou         ###   ########.fr        #
+#    Updated: 2023/04/20 17:15:45 by ride-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,8 @@ SRC += ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c
 
 # Part 2 - Additional functions
 
-SRC += ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c
-SRC += ft_strmapi.c ft_striteri.c
+SRC += ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c
+SRC += ft_itoa.c ft_strmapi.c ft_striteri.c
 SRC += ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
 SRC += ft_putnbr_fd.c
 
