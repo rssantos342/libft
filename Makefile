@@ -6,7 +6,7 @@
 #    By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 10:05:12 by ride-sou          #+#    #+#              #
-#    Updated: 2023/04/20 17:15:45 by ride-sou         ###   ########.fr        #
+#    Updated: 2023/04/21 15:04:23 by ride-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,28 +28,46 @@ SRC += ft_itoa.c ft_strmapi.c ft_striteri.c
 SRC += ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c
 SRC += ft_putnbr_fd.c
 
+# Part 3 - Bonus functions
+
+SRC_B = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c
+
+SRC_B += ft_lstsize.c ft_lstadd_back.c ft_lstdelone.c
+
 OBJS = ${SRC:.c=.o}
+OBJS_B = ${SRC_B:.c=.o}
+
 HEADER = libft.h
 INCLUDE = -I include
 CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
+
 .c.o:
 		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
+
 $(NAME):        ${OBJS}
 				ar rcs ${NAME} ${OBJS} ${HEADER}
+
+bonus:        ${OBJS} ${OBJS_B}
+				ar rcs ${NAME} ${OBJS} ${OBJS_B} ${HEADER}
+
 all:    ${NAME}
+
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${OBJS_B}
+
 fclean: clean
 		${RM} ${NAME}
 		${RM} exec
+
 exec:
 		${CC} ${CFLAGS} ${INCLUDE} ${NAME} -o exec
+
 re:     fclean all exec
 
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
