@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 12:50:16 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/21 15:04:06 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:39:23 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

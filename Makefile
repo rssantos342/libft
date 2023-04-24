@@ -6,7 +6,7 @@
 #    By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 10:05:12 by ride-sou          #+#    #+#              #
-#    Updated: 2023/04/21 15:04:23 by ride-sou         ###   ########.fr        #
+#    Updated: 2023/04/24 13:25:01 by ride-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRC += ft_putnbr_fd.c
 
 SRC_B = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c
 
-SRC_B += ft_lstsize.c ft_lstadd_back.c ft_lstdelone.c
+SRC_B += ft_lstsize.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c
+SRC_B += ft_lstiter.c ft_lstmap.c
 
 OBJS = ${SRC:.c=.o}
 OBJS_B = ${SRC_B:.c=.o}
@@ -67,7 +68,7 @@ exec:
 re:     fclean all exec
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_B)
 	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
 
 .PHONY: all bonus clean fclean re

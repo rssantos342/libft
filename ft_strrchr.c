@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:54:08 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/18 15:21:40 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:56:11 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
 	}
