@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:06:30 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/19 13:14:44 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/26 09:20:18 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,14 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (s != NULL)
 	{
-		write (fd, &s[i], 1);
-		i++;
+		i = 0;
+		while (s[i] != '\0')
+		{
+			write (fd, &s[i], 1);
+			i++;
+		}
+		write (fd, "\n", 1);
 	}
-	write (fd, "\n", 1);
 }

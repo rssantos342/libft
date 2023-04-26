@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 11:04:52 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/24 11:30:42 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/26 10:02:45 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	t_list	*head;
-	t_list	*tmp;
+	t_list	*temp;
 
-	head = *lst;
-	while (head)
+	if (!del)
+		return ;
+	if (lst)
 	{
-		tmp = head->next;
-		(*del)(head->content);
-		free(head);
-		head = tmp;
+		while (*lst)
+		{
+			temp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			(*lst) = temp;
+		}
 	}
-	*lst = NULL;
 }

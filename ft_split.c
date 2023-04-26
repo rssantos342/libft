@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:57:36 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/20 19:10:58 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:40:30 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	**ft_memory_allocation(char const *s, char c, int count_words)
 	return (big_array);
 }
 
-char	*ft_inside_the_box(char const *s, int len)
+char	*ft_inside_the_box(char const *s, int j, int len)
 {
 	char	*str;
 	int		i;
@@ -66,8 +66,9 @@ char	*ft_inside_the_box(char const *s, int len)
 		return (NULL);
 	while (i < len)
 	{
-		str[i] = s[i];
+		str[i] = s[j];
 		i++;
+		j++;
 	}
 	str[i] = '\0';
 	return (str);
@@ -94,7 +95,7 @@ char	**ft_split(char const *s, char c)
 		word_len = 0;
 		while (s[i + word_len] != '\0' && s[i + word_len] != c)
 			word_len++;
-		big_array[k] = ft_inside_the_box(&s[i], word_len);
+		big_array[k] = ft_inside_the_box(s, i, word_len);
 		i = i + word_len;
 		k++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:58:47 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/19 13:03:56 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/26 09:21:13 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
+	if (s != NULL)
 	{
-		write (fd, &s[i], 1);
-		i++;
+		i = 0;
+		while (s[i] != '\0')
+		{
+			write (fd, &s[i], 1);
+			i++;
+		}
 	}
 }

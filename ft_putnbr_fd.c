@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:14:55 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/19 14:38:51 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/26 09:26:25 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,23 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
+	long int	nb;
 
-	if (n == -2147483648)
+	nb = n;
+	if (nb < 0)
 	{
-		write(fd, "-2", 2);
-		n = 147483648;
-	}
-	if (n < 0)
-	{
-		n = n * -1;
+		nb = nb * -1;
 		write(fd, "-", 1);
 	}
-	if (n >= 0 && n <= 9)
+	if (nb >= 0 && nb <= 9)
 	{
-		n = n + 48;
-		write(fd, &n, 1);
+		nb = nb + 48;
+		write(fd, &nb, 1);
 	}
 	else
 	{
-		ft_putnbr_fd(n / 10, fd);
-		i = (n % 10) + 48;
-		write(fd, &i, 1);
+		ft_putnbr_fd(nb / 10, fd);
+		nb = (nb % 10) + 48;
+		write(fd, &nb, 1);
 	}
 }
