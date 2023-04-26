@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:07:14 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/20 08:50:32 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 20:48:07 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (s1 == 0 || set == 0)
 		return (NULL);
 	start = 0;
-	end = ft_strlen(s1) - 1;
+	end = ft_strlen(s1);
 	while (ft_strchr(set, s1[start]) && start <= end)
 		start++;
 	if (start > end)
-		return (ft_strdup(s1 + end + 1));
-	while (ft_strchr(set, s1[end]) && end >= 0)
+		return (ft_strdup(s1 + end));
+	while (ft_strchr(set, s1[end - 1]) && end >= 0)
 		end--;
-	str = malloc(end - start + 2);
+	str = malloc(sizeof(char) * (end - start + 1));
 	if (str == 0)
 		return (NULL);
-	ft_strlcpy(str, &s1[start], end - start + 2);
+	ft_strlcpy(str, &s1[start], end - start + 1);
 	return (str);
 }

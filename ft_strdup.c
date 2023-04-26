@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:51:32 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/18 19:52:35 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 20:11:07 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 char	*ft_strdup(const char *src)
 {
-	char	*new;
+	char	*newstr;
 	int		i;
-	int		size;
 
-	size = 0;
-	while (src[size] != '\0')
-		size++;
-	new = malloc(sizeof(char) * (size + 1));
-	if (new == 0)
+	newstr = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (newstr == 0)
 		return (NULL);
 	i = 0;
 	while (src[i] != '\0')
 	{
-		new[i] = src[i];
+		newstr[i] = src[i];
 		i++;
 	}
-	new[i] = '\0';
-	return (new);
+	newstr[i] = '\0';
+	return (newstr);
 }

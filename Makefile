@@ -6,7 +6,7 @@
 #    By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/13 10:05:12 by ride-sou          #+#    #+#              #
-#    Updated: 2023/04/24 13:25:01 by ride-sou         ###   ########.fr        #
+#    Updated: 2023/04/24 17:16:26 by ride-sou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,37 +38,26 @@ SRC_B += ft_lstiter.c ft_lstmap.c
 OBJS = ${SRC:.c=.o}
 OBJS_B = ${SRC_B:.c=.o}
 
-HEADER = libft.h
-INCLUDE = -I include
-CC = cc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 
 .c.o:
-		${CC} ${CFLAGS} ${INCLUDE} -c $< -o ${<:.c=.o}
+		cc ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME):        ${OBJS}
-				ar rcs ${NAME} ${OBJS} ${HEADER}
-
-bonus:        ${OBJS} ${OBJS_B}
-				ar rcs ${NAME} ${OBJS} ${OBJS_B} ${HEADER}
+				ar rcs ${NAME} ${OBJS}
 
 all:    ${NAME}
+
+bonus:        ${OBJS} ${OBJS_B}
+				ar rcs ${NAME} ${OBJS} ${OBJS_B}
 
 clean:
 		${RM} ${OBJS} ${OBJS_B}
 
 fclean: clean
 		${RM} ${NAME}
-		${RM} exec
 
-exec:
-		${CC} ${CFLAGS} ${INCLUDE} ${NAME} -o exec
-
-re:     fclean all exec
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC) $(SRC_B)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
+re:     fclean all
 
 .PHONY: all bonus clean fclean re

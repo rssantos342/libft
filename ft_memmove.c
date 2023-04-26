@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 08:53:39 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/19 10:24:57 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 17:58:23 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	const char	*s;
+	char		*d;
 
-	s = (char *)src;
-	d = (char *)dest;
-	i = 0;
+	s = src;
+	d = dest;
 	if (dest == NULL && src == NULL)
 		return (NULL);
 	if (d > s)
 	{
-		while (len-- > 0)
-			d[len] = s[len];
-	}
-	else
-	{
-		while (i < len)
+		while (len > 0)
 		{
-			d[i] = s[i];
-			i++;
+			len--;
+			d[len] = s[len];
 		}
 	}
+	else
+		ft_memcpy(d, s, len);
 	return (dest);
 }

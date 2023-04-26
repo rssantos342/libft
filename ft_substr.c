@@ -6,7 +6,7 @@
 /*   By: ride-sou <ride-sou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 08:26:34 by ride-sou          #+#    #+#             */
-/*   Updated: 2023/04/24 16:34:32 by ride-sou         ###   ########.fr       */
+/*   Updated: 2023/04/24 20:17:27 by ride-sou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	if (len > ft_strlen(s) - start)
 		len = ft_strlen(s) - start;
-	substr = (char *)malloc(sizeof(*s) * (len + 1));
+	substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (substr == NULL)
 		return (NULL);
 	ft_memcpy(substr, s + start, len);
