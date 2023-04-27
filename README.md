@@ -1,2 +1,2 @@
 # libft
-ONGOING project
+125/100
